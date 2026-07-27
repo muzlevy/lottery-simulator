@@ -1,4 +1,4 @@
-# my-taro-app
+# lottery-simulator
 
 幸运抽奖微信小程序 Demo：真实微信登录 + 服务端判奖转盘 + 积分持久化。
 

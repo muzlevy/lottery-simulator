@@ -5,7 +5,7 @@ import prodConfig from './prod'
 
 export default defineConfig<'webpack5'>(async (merge) => {
   const baseConfig: UserConfigExport<'webpack5'> = {
-    projectName: 'my-taro-app',
+    projectName: 'lottery-simulator',
     date: '2026-7-27',
     designWidth(input) {
       if (input?.file?.replace(/\\+/g, '/').indexOf('@nutui') > -1) {

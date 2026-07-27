@@ -1,6 +1,6 @@
 {
   "miniprogramRoot": "dist/",
-  "projectname": "my-taro-app",
+  "projectname": "lottery-simulator",
   "description": "幸运抽奖微信小程序 Demo",
   "appid": "touristappid",
   "setting": {
