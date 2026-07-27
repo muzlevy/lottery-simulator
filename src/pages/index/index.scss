@@ -1,0 +1,137 @@
+.home-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 32px 32px 64px;
+  background: linear-gradient(180deg, #eef5ff 0%, #f7f8fa 42%, #f7f8fa 100%);
+}
+
+.home-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.home-title {
+  display: block;
+  font-size: 44px;
+  font-weight: 700;
+  color: #1f2329;
+  margin-bottom: 12px;
+}
+
+.home-points {
+  display: block;
+  font-size: 30px;
+  color: #2f54eb;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.home-disclaimer {
+  display: block;
+  font-size: 22px;
+  color: #86909c;
+}
+
+.wheel-stage {
+  position: relative;
+  width: 560px;
+  height: 560px;
+  margin: 24px auto 40px;
+}
+
+.wheel-pointer {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  z-index: 3;
+  width: 0;
+  height: 0;
+  margin-left: -18px;
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-top: 42px solid #ff4d4f;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.18));
+}
+
+.wheel-disk {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 10px solid #fff;
+  box-shadow: 0 12px 36px rgba(31, 56, 88, 0.18);
+  overflow: hidden;
+}
+
+.wheel-label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 160px;
+  margin-left: -80px;
+  margin-top: -18px;
+  text-align: center;
+  transform-origin: center center;
+  pointer-events: none;
+}
+
+.wheel-label-text {
+  display: block;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.wheel-center-cap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 96px;
+  height: 96px;
+  margin-left: -48px;
+  margin-top: -48px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  z-index: 2;
+}
+
+.home-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.prize-legend {
+  margin-top: 36px;
+  padding: 24px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(31, 56, 88, 0.06);
+}
+
+.prize-legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.prize-legend-item:last-child {
+  margin-bottom: 0;
+}
+
+.prize-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.prize-legend-text {
+  font-size: 24px;
+  color: #4e5969;
+}
