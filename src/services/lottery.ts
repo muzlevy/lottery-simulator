@@ -119,5 +119,5 @@ export function buildConicGradient(prizes: PrizeMeta[]) {
   const stops = prizes
     .map((prize) => `${prize.color} ${prize.startDeg}deg ${prize.endDeg}deg`)
     .join(', ')
-  return `conic-gradient(from -90deg, ${stops})`
+  return `conic-gradient(${stops})`
 }
