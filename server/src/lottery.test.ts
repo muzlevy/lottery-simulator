@@ -7,12 +7,12 @@ function testWeightSum() {
 }
 
 function testBoundaryMapping() {
-  assert.strictEqual(pickPrizeByRoll(0).id, 'cash_1')
-  assert.strictEqual(pickPrizeByRoll(499).id, 'cash_1')
+  assert.strictEqual(pickPrizeByRoll(0).id, 'points_50')
+  assert.strictEqual(pickPrizeByRoll(499).id, 'points_50')
   assert.strictEqual(pickPrizeByRoll(500).id, 'miss')
   assert.strictEqual(pickPrizeByRoll(5499).id, 'miss')
-  assert.strictEqual(pickPrizeByRoll(5500).id, 'pay_dev_5')
-  assert.strictEqual(pickPrizeByRoll(7499).id, 'pay_dev_5')
+  assert.strictEqual(pickPrizeByRoll(5500).id, 'points_2')
+  assert.strictEqual(pickPrizeByRoll(7499).id, 'points_2')
   assert.strictEqual(pickPrizeByRoll(7500).id, 'points_5')
   assert.strictEqual(pickPrizeByRoll(8999).id, 'points_5')
   assert.strictEqual(pickPrizeByRoll(9000).id, 'points_10')
@@ -27,7 +27,26 @@ function testSectorDegrees() {
   }
 }
 
+function testPointsDelta() {
+  const expected: Record<string, number> = {
+    points_50: 50,
+    miss: 0,
+    points_2: 2,
+    points_5: 5,
+    points_10: 10,
+  }
+
+  for (const prize of PRIZES) {
+    assert.strictEqual(
+      prize.pointsDelta,
+      expected[prize.id],
+      `${prize.id} pointsDelta 应为 ${expected[prize.id]}`,
+    )
+  }
+}
+
 testWeightSum()
 testBoundaryMapping()
 testSectorDegrees()
+testPointsDelta()
 console.log('[lottery] boundary tests passed')

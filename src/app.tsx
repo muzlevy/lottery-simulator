@@ -8,25 +8,43 @@ import './app.scss'
 
 function App({ children }: PropsWithChildren) {
   useLaunch(() => {
-    void bootstrapAuth()
+    // 延后到首屏节点就绪，避免启动瞬间 reLaunch 造成白屏
+    Taro.nextTick(() => {
+      void bootstrapAuth()
+    })
   })
 
   return children
 }
 
+function getCurrentRoute() {
+  const pages = Taro.getCurrentPages()
+  if (!pages.length) return ''
+  const current = pages[pages.length - 1]
+  return (current && current.route) || ''
+}
+
 async function bootstrapAuth() {
   const token = getToken()
+  const route = getCurrentRoute()
+
   if (!token) {
-    await Taro.reLaunch({ url: '/pages/login/index' })
+    if (route !== 'pages/login/index') {
+      await Taro.reLaunch({ url: '/pages/login/index' })
+    }
     return
   }
 
   try {
     await fetchMe()
-    await Taro.reLaunch({ url: '/pages/index/index' })
+    if (route !== 'pages/index/index') {
+      await Taro.reLaunch({ url: '/pages/index/index' })
+    }
   } catch {
     clearToken()
-    await Taro.reLaunch({ url: '/pages/login/index' })
+    if (route !== 'pages/login/index') {
+      await Taro.reLaunch({ url: '/pages/login/index' })
+    }
   }
 }
 

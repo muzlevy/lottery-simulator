@@ -2,7 +2,7 @@
   "miniprogramRoot": "dist/",
   "projectname": "lottery-simulator",
   "description": "幸运抽奖微信小程序 Demo",
-  "appid": "touristappid",
+  "appid": "wxb9b9a75dbf91897d",
   "setting": {
     "urlCheck": false,
     "es6": false,

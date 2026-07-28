@@ -86,7 +86,7 @@ export default function IndexPage() {
   }
 
   const dialogTitle =
-    result?.prizeId === 'miss' ? '未中奖' : '恭喜获得'
+    result && result.prizeId === 'miss' ? '未中奖' : '恭喜获得'
 
   const dialogContent = result
     ? result.pointsDelta > 0
@@ -126,7 +126,11 @@ export default function IndexPage() {
                   transform: `rotate(${mid}deg) translateY(-210rpx)`,
                 }}
               >
-                <Text className="wheel-label-text">{prize.name}</Text>
+                {Array.from(prize.name).map((char, index) => (
+                  <Text key={`${prize.id}-${index}`} className="wheel-label-char">
+                    {char}
+                  </Text>
+                ))}
               </View>
             )
           })}
@@ -144,7 +148,7 @@ export default function IndexPage() {
         >
           {spinning ? '抽奖中...' : '点击抽奖'}
         </Button>
-        <Button type="default" block disabled={spinning} onClick={handleLogout}>
+        <Button type="default" block disabled={spinning} className="home-action-gap" onClick={handleLogout}>
           退出登录
         </Button>
       </View>

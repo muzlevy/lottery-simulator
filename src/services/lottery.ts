@@ -1,11 +1,11 @@
 import { request } from '../utils/request'
 
 export type PrizeId =
-  | 'cash_1'
   | 'miss'
-  | 'pay_dev_5'
+  | 'points_2'
   | 'points_5'
   | 'points_10'
+  | 'points_50'
 
 export interface PrizeMeta {
   id: PrizeId
@@ -20,12 +20,12 @@ export interface PrizeMeta {
 /** 与服务端保持一致的默认奖项配置（用于绘制转盘） */
 export const DEFAULT_PRIZES: PrizeMeta[] = [
   {
-    id: 'cash_1',
-    name: '现金1元',
+    id: 'points_50',
+    name: '积分+50',
     weight: 500,
     startDeg: 0,
     endDeg: 18,
-    pointsDelta: 0,
+    pointsDelta: 50,
     color: '#FF6B6B',
   },
   {
@@ -38,12 +38,12 @@ export const DEFAULT_PRIZES: PrizeMeta[] = [
     color: '#94A3B8',
   },
   {
-    id: 'pay_dev_5',
-    name: '转5元给开发者',
+    id: 'points_2',
+    name: '积分+2',
     weight: 2000,
     startDeg: 198,
     endDeg: 270,
-    pointsDelta: 0,
+    pointsDelta: 2,
     color: '#F59E0B',
   },
   {

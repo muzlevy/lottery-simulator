@@ -1,3 +1,3 @@
 export default definePageConfig({
-  navigationBarTitleText: '幸运抽奖',
-})
+  navigationBarTitleText: "幸运抽奖",
+});
